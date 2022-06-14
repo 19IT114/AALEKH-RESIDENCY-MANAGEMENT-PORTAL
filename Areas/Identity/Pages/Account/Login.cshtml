@@ -1,0 +1,71 @@
+﻿@page
+@model LoginModel
+
+@{
+    ViewData["Title"] = "Log in";
+}
+<meta content="width=device-width, initial-scale=1" name="viewport" />
+<style>
+    .divider:after,
+    .divider:before {
+        content: "";
+        flex: 1;
+        height: 1px;
+        background: #eee;
+    }
+    .h-custom {
+        height: calc(100% - 73px);
+    }
+</style>
+
+<section class="vh-100">
+    <div class="container-fluid h-custom">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-md-9 col-lg-6 col-xl-5">
+                <img src="~/img/logo.png"
+                     class="img-fluid" alt="Sample image">
+            </div>
+            <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+                <form id="account" method="post">
+                    <h1>@ViewData["Title"]</h1>
+                    <h4>Use a local account to log in.</h4>
+                    <hr />
+                    <div asp-validation-summary="All" class="text-danger"></div>
+
+                    <div class="form-outline mb-4">
+                        <label asp-for="Input.Email">Username</label>
+                        <input asp-for="Input.Email" type="email" id="form3Example3" class="form-control form-control-lg" placeholder="Enter a valid email address" />
+                        <span asp-validation-for="Input.Email" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-outline mb-4">
+                        <label asp-for="Input.Password">Password</label>
+                        <input asp-for="Input.Password" type="password" id="form3Example4" class="form-control form-control-lg" placeholder="Enter a valid password" />
+                        <span asp-validation-for="Input.Password" class="text-danger"></span>
+                    </div>
+                    <div>
+                        <div class="checkbox">
+                            <label asp-for="Input.RememberMe" class="form-label">
+                                <input class="form-check-input" asp-for="Input.RememberMe" />
+                                @Html.DisplayNameFor(m => m.Input.RememberMe)
+                            </label>
+                        </div>
+                    </div>
+                    <div>
+                        <button id="login-submit" type="submit" class="w-100 btn btn-lg btn-primary">Log in</button>
+                    </div>
+                </form>
+                <p class="small fw-bold mt-2 pt-1 mb-0">
+                    Don't have an account? <a href="/Identity/Account/Register"
+                                              class="link-danger">Register</a>
+                </p>
+            </div>
+        </div>
+    </div>
+    </div>
+</section>
+
+
+@section Scripts {
+<partial name="_ValidationScriptsPartial" />
+}

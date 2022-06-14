@@ -1,0 +1,16 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "3d11fd6c-5ae7-48e0-ab45-673edccf5b8d": {
+      "ProjectGuid": "3d11fd6c-5ae7-48e0-ab45-673edccf5b8d",
+      "DisplayName": "AALEKH-SOCIETY-COOP",
+      "ColorIndex": 0
+    },
+    "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
+      "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
+      "DisplayName": "Miscellaneous Files",
+      "ColorIndex": -1
+    }
+  },
+  "NextColorIndex": 1
+}
