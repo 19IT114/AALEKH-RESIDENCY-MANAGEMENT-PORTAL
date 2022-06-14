@@ -1,0 +1,19 @@
+
+  {
+    "name": "PWA Demo",
+    "short_name": "PWA Demo Test",
+    "description": "Creating PWA in ASP.NET Core.",
+    "icons": [
+      {
+        "src": "./img/logo_192.png",
+        "sizes": "192x192"
+      },
+      {
+        "src": "./img/logo_512.png",
+        "sizes": "512x512"
+      }
+    ],
+    "display": "standalone",
+    "start_url": "/"
+  }
+

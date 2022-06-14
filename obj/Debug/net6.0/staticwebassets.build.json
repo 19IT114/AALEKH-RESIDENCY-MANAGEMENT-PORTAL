@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "U1t95YTM5NL9+6YkxPGu8stTCgeIWECuD+s5yCT5J8U=",
+  "Hash": "LzZFQjNIWzt//mokqNPTMxLu2nOeuWvVklyoRBdG4YE=",
   "Source": "AALEKH-SOCIETY-COOP",
   "BasePath": "_content/AALEKH-SOCIETY-COOP",
   "Mode": "Default",
@@ -1105,23 +1105,6 @@
       "OriginalItemSpec": "wwwroot\\favicon.ico"
     },
     {
-      "Identity": "D:\\Web Project\\AALEKH-SOCIETY-COOP\\wwwroot\\img\\burger.png",
-      "SourceId": "AALEKH-SOCIETY-COOP",
-      "SourceType": "Discovered",
-      "ContentRoot": "D:\\Web Project\\AALEKH-SOCIETY-COOP\\wwwroot\\",
-      "BasePath": "_content/AALEKH-SOCIETY-COOP",
-      "RelativePath": "img/burger.png",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\img\\burger.png"
-    },
-    {
       "Identity": "D:\\Web Project\\AALEKH-SOCIETY-COOP\\wwwroot\\img\\logo.png",
       "SourceId": "AALEKH-SOCIETY-COOP",
       "SourceType": "Discovered",
@@ -1137,6 +1120,40 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\img\\logo.png"
+    },
+    {
+      "Identity": "D:\\Web Project\\AALEKH-SOCIETY-COOP\\wwwroot\\img\\logo_192.png",
+      "SourceId": "AALEKH-SOCIETY-COOP",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Web Project\\AALEKH-SOCIETY-COOP\\wwwroot\\",
+      "BasePath": "_content/AALEKH-SOCIETY-COOP",
+      "RelativePath": "img/logo_192.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\logo_192.png"
+    },
+    {
+      "Identity": "D:\\Web Project\\AALEKH-SOCIETY-COOP\\wwwroot\\img\\logo_512.png",
+      "SourceId": "AALEKH-SOCIETY-COOP",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Web Project\\AALEKH-SOCIETY-COOP\\wwwroot\\",
+      "BasePath": "_content/AALEKH-SOCIETY-COOP",
+      "RelativePath": "img/logo_512.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\logo_512.png"
     },
     {
       "Identity": "D:\\Web Project\\AALEKH-SOCIETY-COOP\\wwwroot\\js\\site.js",
@@ -2123,6 +2140,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
+    },
+    {
+      "Identity": "D:\\Web Project\\AALEKH-SOCIETY-COOP\\wwwroot\\manifest.json",
+      "SourceId": "AALEKH-SOCIETY-COOP",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Web Project\\AALEKH-SOCIETY-COOP\\wwwroot\\",
+      "BasePath": "_content/AALEKH-SOCIETY-COOP",
+      "RelativePath": "manifest.json",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\manifest.json"
     }
   ]
 }

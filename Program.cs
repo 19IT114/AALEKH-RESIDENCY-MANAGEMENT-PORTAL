@@ -12,7 +12,7 @@ builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.R
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-
+builder.Services.AddProgressiveWebApp();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -27,7 +27,8 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
-app.UseAuthentication();;
+app.UseAuthentication();
+
 
 app.UseAuthorization();
 
