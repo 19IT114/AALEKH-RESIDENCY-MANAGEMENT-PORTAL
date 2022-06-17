@@ -1,24 +1,9 @@
-﻿@{
-    Layout = "_mainLayout";
-    ViewData["Titel"] = "Dashboard";
+﻿@model AALEKH_SOCIETY_COOP.Controllers.Residents
+@{
+     ViewData["Title"] = "Maintainence Slip";
 }
-<div class="breadcrumb">
-    <a href="javascript:void(0)" id="PrintBill" class="float-rigth btn btn-sm btn-primary">
-        Print
-    </a>
-    &nbsp;&nbsp;
 
-    <a href="javascript:void(0)" id="ExportPdfF11" class="float-rigth btn btn-sm btn-primary">
-        Export PDF
-    </a>
-    &nbsp;&nbsp;
-
-   @* <a href="javascript:void(0)" id="ExportWordF11" class="float-rigth btn btn-sm btn-primary">
-        Export Word
-    </a>*@
-</div>
-<div class="d-flex justify-content-center">
-    <div class="card-body col-md-8 " style="background:white;margin-top:6rem;">
+    <div class="card-body col-md-6 " style="background:white;">
                 <center>
                     <table border="1" style="width:63rem;">
                         <tr style="text-align:center">
@@ -68,7 +53,7 @@
                         <table border="1" style="width:63rem;text-align:left;">
                             <tr>
                                 <td style="word-wrap:break-word;padding:10px;">
-                                   Mr. / Mrs. : <span style="min-width:48rem;display: inline-block;">___________________________________________________________________________________________________________________</span> has paid a sum of Rs. <span style="min-width:36rem;display: inline-block;">______________________________________________________________________________________</span> via Cheque / Online number <span style="min-width:10rem; display: inline-block;">__________________________</span> on Date : <span style="min-width:9rem; display: inline-block;"><input type="date" id="date" placeholder="Please select the date." style="min-width:8rem" /></span> via Bank  <span style="min-width:9rem; display: inline-block;"><input style="min-width:8rem;" id="bank" type="text" name="bank" placeholder="Bank Name"/></span> Branch : <span style="min-width:12rem; display: inline-block;"><input type="text" id="branch" style="width:12rem;" placeholder="Branch Name" /></span> / Cash has been recieved.
+                                   Mr. / Mrs. : <span style="min-width:48rem;display: inline-block;">___________________________________________________________________________________________________________________</span> has paid a sum of Rs. <span style="min-width:36rem;display: inline-block;">______________________________________________________________________________________</span> via Cheque / Online number <span style="min-width:10rem; display: inline-block;">__________________________</span> on Date : <span style="min-width:9rem; display: inline-block;"><partial style="text-align:center;font-weight:bold;"</p></span> via Bank  <span style="min-width:9rem; display: inline-block;"><p style="text-align:center;font-weight:bold;">@Model.Bank</p></span> Branch : <span style="min-width:12rem; display: inline-block;"><p style="text-align:center;font-weight:bold;">@Model.Branch</p></span> / Cash has been recieved.
                                 </td>
                             </tr>
                         </table>
@@ -150,13 +135,8 @@
                         </table>
                 </center>
     </div>
-</div>
 
-<script>
-     $(document).off('click', '#PrintBill').on('click', '#PrintBill', function () {
-        
-            window.open("/Bill/PrintBill/" + $('#bank').val() + "," + $('#branch').val());
-       
-        
-    });
+<script type="text/javascript">
+    window.onafterprint = window.close;
+    window.print();
 </script>

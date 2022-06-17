@@ -79,5 +79,22 @@ namespace AALEKH_SOCIETY_COOP.Controllers
                 return View();
             }
         }
+        public async Task<IActionResult> PrintBill(string id)
+        {
+
+            Residents details = new Residents();
+            details.Bank = id.Split(",")[0];
+            details.Branch = id.Split(",")[1];
+            
+
+            return View("Views/Bill/Print.cshtml", details);
+        }
+
+    }
+    public class Residents
+    {
+        public string? Bank { get; set; }
+        public string? Branch { get; set; }
+       
     }
 }
