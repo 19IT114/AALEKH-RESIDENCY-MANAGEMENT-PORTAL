@@ -83,9 +83,12 @@ namespace AALEKH_SOCIETY_COOP.Controllers
         {
 
             Residents details = new Residents();
-            details.Bank = id.Split(",")[0];
-            details.Branch = id.Split(",")[1];
-            
+            details.fromMonth = Convert.ToDateTime(id.Split(",")[0]).ToString("Y");
+            details.toMonth = Convert.ToDateTime(id.Split(",")[1]).ToString("Y");
+            details.recievedDate = Convert.ToDateTime(id.Split(",")[2]).ToString("dd/MM/yyyy");
+            details.Bank = id.Split(",")[3];
+            details.Branch = id.Split(",")[4];
+            details.chequeOnlineNum = id.Split(",")[5];
 
             return View("Views/Bill/Print.cshtml", details);
         }
@@ -95,6 +98,13 @@ namespace AALEKH_SOCIETY_COOP.Controllers
     {
         public string? Bank { get; set; }
         public string? Branch { get; set; }
+
+        public string? fromMonth { get; set; }  
+        public string? toMonth { get; set; }
+
+        public string? recievedDate { get; set; }
+
+        public string? chequeOnlineNum { get; set; }
        
     }
 }
