@@ -5,9 +5,19 @@ namespace AALEKH_SOCIETY_COOP.Controllers
 {
     public class BillController : Controller
     {
-        // GET: BillController
-        public ActionResult Index()
+        private readonly ICommon _common;
+        public BillController(ICommon common)
         {
+            _common = common;
+        }
+        // GET: BillController
+        public async Task<IActionResult> Index()
+        {
+            var maintainence = await _common.GetFixedChargesbyId(1);
+            ViewBag.Maintainence = (maintainence.Status == true)?maintainence.FixedCharge:0;
+            maintainence = await _common.GetFixedChargesbyId(2);
+            ViewBag.Cleaning = (maintainence.Status == true)?maintainence.FixedCharge:0;
+           
             return View();
         }
 
@@ -86,10 +96,11 @@ namespace AALEKH_SOCIETY_COOP.Controllers
             details.fromMonth = Convert.ToDateTime(id.Split(",")[0]).ToString("Y");
             details.toMonth = Convert.ToDateTime(id.Split(",")[1]).ToString("Y");
             details.recievedDate = Convert.ToDateTime(id.Split(",")[2]).ToString("dd/MM/yyyy");
-            details.toatalamount = Convert.ToInt32(id.Split(",")[3]);
-            details.Bank = id.Split(",")[4];
-            details.Branch = id.Split(",")[5];
-            details.chequeOnlineNum = id.Split(",")[6];
+            details.maintainence = Convert.ToInt32(id.Split(",")[3]);
+            details.cleaning = Convert.ToInt32(id.Split(",")[4]);
+            details.Bank = id.Split(",")[5];
+            details.Branch = id.Split(",")[6];
+            details.chequeOnlineNum = id.Split(",")[7];
 
             return View("Views/Bill/Print.cshtml", details);
         }
@@ -103,7 +114,8 @@ namespace AALEKH_SOCIETY_COOP.Controllers
         public string? toMonth { get; set; }
         public string? recievedDate { get; set; }
         public string? chequeOnlineNum { get; set; }
-        public int? toatalamount { get; set; }
+        public int? maintainence { get; set; }
+        public int? cleaning { get; set; }
        
     }
 }

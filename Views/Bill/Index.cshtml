@@ -12,12 +12,9 @@
     <a href="javascript:void(0)" id="ExportPdfF11" class="float-rigth btn btn-sm btn-primary">
         Export PDF
     </a>
-    &nbsp;&nbsp;
-
-   @* <a href="javascript:void(0)" id="ExportWordF11" class="float-rigth btn btn-sm btn-primary">
-        Export Word
-    </a>*@
+    &nbsp;&nbsp
 </div>
+
 <div class="d-flex justify-content-center">
     <div class="card-body col-md-8 " style="background:white;margin-top:2rem;">
                 <center>
@@ -93,7 +90,7 @@
                                 <td style="border:1px solid black;text-align:left;padding-left:1rem;">
                                     Maintainence Charges.
                                 </td>
-                                <td style="border:1px solid black;" id="charges">
+                                <td style="border:1px solid black;" id="maintainence">
                                     
                                 </td>
                             </tr>
@@ -104,7 +101,7 @@
                                 <td style="border:1px solid black;text-align:left;padding-left:1rem;">
                                     Cleaning Charges.
                                 </td>
-                                <td style="border:1px solid black;" id="charges">
+                                <td style="border:1px solid black;" id="cleaning">
 
                                 </td>
                             </tr>
@@ -181,18 +178,21 @@
            $('#exampleModal').modal('show')
        }
        else{
-        window.open("/Bill/PrintBill/" + $('#from').val() + "," + $('#to').val() + "," + $('#recieveddate').val() + "," + $('#charges').html() + "," + $('#bank').val() + "," + $('#branch').val() + "," + $('#num').val() );
+        window.open("/Bill/PrintBill/" + $('#from').val() + "," + $('#to').val() + "," + $('#recieveddate').val() + "," + $('#maintainence').html() + "," + $('#cleaning').html() + "," + $('#bank').val() + "," + $('#branch').val() + "," + $('#num').val() );
        }
     });
 
     function charge(){
-          var months;
+        var maintainence = '@ViewBag.Maintainence';
+        var cleaning = '@ViewBag.Cleaning';
+         var months;
          var d1 = $('#from').val();
          var d2 = $('#to').val();
         months = (new Date(d2).getFullYear() - new Date(d1).getFullYear()) * 12;
         months -= new Date(d1).getMonth();
         months += new Date(d2).getMonth() + 1;
-        $('#charges').html(months * 600);
+        $('#maintainence').html(months * maintainence);
+        $('#cleaning').html((months * cleaning));
     };
 
      $(document).ready(function(){
