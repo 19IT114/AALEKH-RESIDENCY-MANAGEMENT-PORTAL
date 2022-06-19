@@ -21,5 +21,27 @@ namespace AALEKH_SOCIETY_COOP
             _context.FixedCharges.Add(charges);
             return await _context.SaveChangesAsync();
         }
+
+        public async Task<FixedCharges> GetFixedChargesbyId(int? id)
+        {
+            return await _context.FixedCharges.FirstOrDefaultAsync(x => x.id == id);
+        }
+
+        public async Task<int> UpdateFixedCharges(FixedCharges charges)
+        {
+             _context.FixedCharges.Update(charges);
+            return await _context.SaveChangesAsync();
+        }
+
+        public async Task<bool> CheckFixedChargesExists(int id)
+        {
+            return await _context.FixedCharges.AnyAsync(x => x.id == id);
+        }
+
+        public async Task<int> RemoveFixedCharge(FixedCharges charges)
+        {
+             _context.FixedCharges.Remove(charges);
+            return await _context.SaveChangesAsync(); 
+        }
     }
 }

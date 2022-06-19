@@ -1,0 +1,60 @@
+﻿@model AALEKH_SOCIETY_COOP.FixedCharges
+@{
+     Layout = "_mainLayout";
+    ViewData["Title"] = "Fixed-Charges";
+}
+<ol class="breadcrumb">
+    <li class="breadcrumb-item active"><a asp-action="index" asp-controller="Dashboard">Dashboard</a>  </li>
+    <li class="breadcrumb-item active"><a asp-action="index" asp-controller="FixedCharges">Fixed-Charges</a></li>
+    <li class="breadcrumb-item active">Delete</li>
+</ol>
+
+
+<div class="card">
+    <div class="card-header">
+        Are you sure you want to delete this?
+    </div>
+    <div class="card-body">
+        <div>
+
+            <dl class="row">
+                <dt class="col-sm-6">
+                    @Html.DisplayNameFor(model => model.Type)
+                </dt>
+                <dd class="col-sm-6">
+                    @Html.DisplayFor(model => model.Type)
+                </dd>
+                <dt class="col-sm-6">
+                    @Html.DisplayNameFor(model => model.FixedCharge)
+                </dt>
+                <dd class="col-sm-6">
+                    @Html.DisplayFor(model => model.FixedCharge)
+                </dd>
+                <dt class="col-sm-6">
+                    @Html.DisplayNameFor(model => model.Updatedon)
+                </dt>
+                <dd class="col-sm-6">
+                    @Html.DisplayFor(model => model.Updatedon)
+                </dd>
+                <dt class="col-sm-6">
+                    @Html.DisplayNameFor(model => model.Status)
+                </dt>
+                <dd class="col-sm-6">
+                    @Html.DisplayFor(model => model.Status)
+                </dd>
+                
+            </dl>
+        </div>
+        <hr />
+        <div class="float-right">
+            <form asp-action="Delete">
+                <button asp-action="Index" class="btn btn-sm btn-outline-primary">Back to List</button>
+                <input type="hidden" asp-for="id" />
+                <input type="submit" value="Yes Delete" class="btn btn-sm btn-outline-danger" />
+            </form>
+        </div>
+    </div>
+</div>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

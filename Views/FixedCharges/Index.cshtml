@@ -54,7 +54,10 @@
                             @Html.DisplayFor(modelItem => item.FixedCharge)
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.Updatedon)
+                            @{
+                                var updatedDate = Convert.ToDateTime(item.Updatedon).ToString("dd/MM/yyyy");
+                            }
+                            @updatedDate
                         </td>
                         <td>
                             @Html.DisplayFor(modelItem => item.Status)

@@ -23,9 +23,14 @@ namespace AALEKH_SOCIETY_COOP.Controllers
         }
 
         // GET: FixedChargesController/Details/5
-        public ActionResult Details(int id)
+        public async Task<ActionResult> Details(int id)
         {
-            return View();
+            if (id == null)
+            {
+                return NotFound();
+            }
+            var charge = await _common.GetFixedChargesbyId(id);
+            return View(charge);
         }
 
         // GET: FixedChargesController/Create
@@ -49,45 +54,73 @@ namespace AALEKH_SOCIETY_COOP.Controllers
         }
 
         // GET: FixedChargesController/Edit/5
-        public ActionResult Edit(int id)
+        public async Task<IActionResult> Edit(int? id)
         {
-            return View();
+            if(id == null)
+            {
+                return NotFound();
+            }
+            var charge = await _common.GetFixedChargesbyId(id);
+            return View(charge);
         }
 
         // POST: FixedChargesController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public async Task<IActionResult> Edit(int id, [Bind("id,Type,FixedCharge,Status")] FixedCharges charges)
         {
-            try
+
+            if(id != charges.id)
             {
+                return NotFound();
+            }
+            charges.Updatedon = DateTime.Now;
+            if(ModelState.IsValid)
+            {
+                try
+                {
+                    await _common.UpdateFixedCharges(charges);
+                }
+                catch(Exception)
+                {
+                    if (!(await _common.CheckFixedChargesExists(charges.id)))
+                    {
+                        return NotFound();
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                }
                 return RedirectToAction(nameof(Index));
             }
-            catch
-            {
-                return View();
-            }
+            return View(charges);
+            
         }
 
         // GET: FixedChargesController/Delete/5
-        public ActionResult Delete(int id)
+        public async Task<IActionResult> Delete(int? id)
         {
-            return View();
+            if (id == null)
+            {
+                return NotFound();
+            }
+            var charge = await _common.GetFixedChargesbyId(id);
+            return View(charge);
+           
         }
 
         // POST: FixedChargesController/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
+        public async Task<IActionResult> Delete(int id)
         {
-            try
+            var charges = await _common.GetFixedChargesbyId(id);
+            if(charges != null)
             {
-                return RedirectToAction(nameof(Index));
+                await _common.RemoveFixedCharge(charges);
             }
-            catch
-            {
-                return View();
-            }
+            return RedirectToAction(nameof(Index));
         }
     }
 }

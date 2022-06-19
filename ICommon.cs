@@ -6,5 +6,10 @@ namespace AALEKH_SOCIETY_COOP
     {
         Task<List<FixedCharges>> GetFixedCharges();
         Task<int> AddFixedCharges(FixedCharges charges);
+
+        Task<FixedCharges> GetFixedChargesbyId(int? id);
+        Task<int> UpdateFixedCharges(FixedCharges charges);
+        Task<bool> CheckFixedChargesExists(int id);
+        Task<int> RemoveFixedCharge(FixedCharges charges);
     }
 }
