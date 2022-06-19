@@ -1,22 +1,9 @@
-﻿@{
-    Layout = "_mainLayout";
-    ViewData["Titel"] = "Dashboard";
+﻿@model AALEKH_SOCIETY_COOP.Controllers.Residents
+@{
+     ViewData["Title"] = "Maintainence Slip";
 }
 
-<div class="breadcrumb">
-    <a href="javascript:void(0)" id="PrintBill" class="float-rigth btn btn-sm btn-primary">
-        Print
-    </a>
-    &nbsp;&nbsp;
-
-    <a href="javascript:void(0)" id="ExportPdfF11" class="float-rigth btn btn-sm btn-primary">
-        Export PDF
-    </a>
-    &nbsp;&nbsp
-</div>
-
-<div class="d-flex justify-content-center">
-    <div class="card-body col-md-8 " style="background:white;margin-top:2rem;">
+    <div class="card-body col-md-6 " style="background:white;">
                 <center>
                     <table border="1" style="width:63rem;">
                         <tr style="text-align:center">
@@ -56,8 +43,19 @@
                                 House no. : __________________________
                             </th>
                             <th>
-                                
-                                Period : <input id="from" type="month" style="width:9rem" /> - <input id="to" type="month" style="width:9rem" onchange="charge()"/>
+                    @{
+                        var time = "";
+                        if(Model.fromMonth == Model.toMonth)
+                        {
+                            time = Model.fromMonth;
+                        }
+                        else
+                        {
+                            time = @Model.fromMonth + " - " + @Model.toMonth;
+                        }
+                     }
+                                Period : @time
+                    
                             </th>
                             <th style="text-align:right;padding-right:15px;">
                                 Date : <span style="min-width:11rem;display:inline-block;text-align:center;"><b>@DateTime.Now.ToString("dd/MM/yyyy")</b></span>
@@ -67,7 +65,7 @@
                         <table border="1" style="width:63rem;text-align:left;">
                             <tr>
                                 <td style="word-wrap:break-word;padding:10px;">
-                                   Mr. / Mrs. : <span style="min-width:48rem;display: inline-block;">___________________________________________________________________________________________________________________</span> has paid a sum of Rs. <span style="min-width:36rem;display: inline-block;">______________________________________________________________________________________</span> via Cheque / Online number <span style="min-width:10rem; display: inline-block;"><input style="width:11rem" placeholder="Cheque / Online no." id="num" type="text"/></span> on Date : <span style="min-width:9rem; display: inline-block;"><input type="date" id="recieveddate" placeholder="Please select the date." style="min-width:8rem" /></span> via Bank : <span style="min-width:9rem; display: inline-block;"><input style="min-width:8rem;" id="bank" type="text" name="bank" placeholder="Bank Name"/></span> Branch : <span style="min-width:12rem; display: inline-block;"><input type="text" id="branch" style="width:12rem;" placeholder="Branch Name" /></span> / Cash has been recieved.
+                                   Mr. / Mrs. : <span style="min-width:48rem;display: inline-block;">___________________________________________________________________________________________________________________</span> has paid a sum of Rs. <span style="min-width:36rem;display: inline-block;">______________________________________________________________________________________</span> via Cheque / Online number <span style="min-width:10rem; display: inline-block;"><p style="text-align:center;font-weight:bold;">@Model.chequeOnlineNum</p></span> on Date : <span style="min-width:9rem; display: inline-block;"><p style="text-align:center;font-weight:bold;">@Model.recievedDate</p></span> via Bank : <span style="min-width:9rem; display: inline-block;"><p style="text-align:center;font-weight:bold;">@Model.Bank</p></span> Branch : <span style="min-width:12rem; display: inline-block;"><p style="text-align:center;font-weight:bold;">@Model.Branch</p></span> / Cash has been recieved.
                                 </td>
                             </tr>
                         </table>
@@ -85,13 +83,13 @@
                             </tr>
                             <tr>
                                 <td style="border:1px solid black;">
-                                   1
+                                    1
                                 </td>
                                 <td style="border:1px solid black;text-align:left;padding-left:1rem;">
                                     Maintainence Charges.
                                 </td>
-                                <td style="border:1px solid black;" id="maintainence">
-                                    
+                                <td style="border:1px solid black;">
+                                    @Model.maintainence
                                 </td>
                             </tr>
                             <tr>
@@ -101,8 +99,8 @@
                                 <td style="border:1px solid black;text-align:left;padding-left:1rem;">
                                     Cleaning Charges.
                                 </td>
-                                <td style="border:1px solid black;" id="cleaning">
-
+                                <td style="border:1px solid black;">
+                                    @Model.cleaning
                                 </td>
                             </tr>
                             <tr>
@@ -150,70 +148,7 @@
                 </center>
     </div>
 
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" data-backdrop="static" aria-hidden="true" >
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Unsufficient Data provided.</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body" >
-       <label for="fname" id="alert-text">Alert!! Please Fill up the Required Fields.</label><br>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-<script>
-     $(document).off('click', '#PrintBill').on('click', '#PrintBill', function () {
-       var value = $('#recieveddate').val();
-       if(value == '')
-       {
-           $('#exampleModal').modal('show')
-       }
-       else{
-        window.open("/Bill/PrintBill/" + $('#from').val() + "," + $('#to').val() + "," + $('#recieveddate').val() + "," + $('#maintainence').html() + "," + $('#cleaning').html() + "," + $('#bank').val() + "," + $('#branch').val() + "," + $('#num').val() );
-       }
-    });
-
-    function charge(){
-        var maintainence = '@ViewBag.Maintainence';
-        var cleaning = '@ViewBag.Cleaning';
-         var months;
-         var d1 = $('#from').val();
-         var d2 = $('#to').val();
-        months = (new Date(d2).getFullYear() - new Date(d1).getFullYear()) * 12;
-        months -= new Date(d1).getMonth();
-        months += new Date(d2).getMonth() + 1;
-        $('#maintainence').html(months * maintainence);
-        $('#cleaning').html((months * cleaning));
-    };
-
-     $(document).ready(function(){
-       $("#PrintBill").click(function(){
-          if($('#from').val() == '' || $('#to').val() == '')
-          {
-             $("#alert-text").text("Please select the period for which you are recieving the payment.");
-             $("#exampleModal").modal("show");
-             return ;
-          }
-          else if($('#recieveddate').val() == '')
-          {
-             $("#alert-text").text("Please select the date on which you recieved the payment.");
-             $("#exampleModal").modal("show");
-             return ;
-          }
-       });
-    });
-
-    function close(){
-        $('#exampleModal').modal('hide');
-    }
-  
+<script type="text/javascript">
+    window.onafterprint = window.close;
+    window.print();
 </script>

@@ -47,8 +47,32 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmlsbFxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/Web Project/AALEKH-SOCIETY-COOP/Views/Bill/Print.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmlsbFxQcmludC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/Web Project/AALEKH-SOCIETY-COOP/Views/Entry/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW50cnlcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Web Project/AALEKH-SOCIETY-COOP/Views/FixedCharges/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRml4ZWRDaGFyZ2VzXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Web Project/AALEKH-SOCIETY-COOP/Views/FixedCharges/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRml4ZWRDaGFyZ2VzXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Web Project/AALEKH-SOCIETY-COOP/Views/FixedCharges/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRml4ZWRDaGFyZ2VzXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Web Project/AALEKH-SOCIETY-COOP/Views/FixedCharges/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRml4ZWRDaGFyZ2VzXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Web Project/AALEKH-SOCIETY-COOP/Views/FixedCharges/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRml4ZWRDaGFyZ2VzXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/Web Project/AALEKH-SOCIETY-COOP/Views/Home/Index.cshtml]

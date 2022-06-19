@@ -1,6 +1,8 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using AALEKH_SOCIETY_COOP.Areas.Identity.Data;
+using AALEKH_SOCIETY_COOP;
+
 var builder = WebApplication.CreateBuilder(args);
 var connectionString = builder.Configuration.GetConnectionString("ApplicationDbContextConnection") ?? throw new InvalidOperationException("Connection string 'ApplicationDbContextConnection' not found.");
 
@@ -13,6 +15,7 @@ builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.R
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddProgressiveWebApp();
+builder.Services.AddScoped<ICommon, Common>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

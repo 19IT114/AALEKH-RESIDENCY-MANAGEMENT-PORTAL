@@ -1,4 +1,5 @@
 ﻿using AALEKH_SOCIETY_COOP.Areas.Identity.Data;
+using AALEKH_SOCIETY_COOP.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
@@ -11,6 +12,7 @@ public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
         : base(options)
     {
     }
+     public DbSet<FixedCharges> FixedCharges { get; set; }
 
     protected override void OnModelCreating(ModelBuilder builder)
     {

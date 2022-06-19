@@ -1,0 +1,83 @@
+﻿
+@model IEnumerable<AALEKH_SOCIETY_COOP.FixedCharges>
+
+@{
+    Layout = "_mainLayout";
+    ViewData["Title"] = "Fixed-Charges";
+}
+<ol class="breadcrumb">
+    <li class="breadcrumb-item active"><a asp-action="index" asp-controller="Dashboard">Dashboard</a>  </li>
+    <li class="breadcrumb-item active">Fixed-Charges</li>
+</ol>
+<div class="card">
+    <div class="card-header">
+       Fixed-Charges
+        <a class=" float-right btn btn-sm btn-outline-primary " asp-action="Create">Create New</a>
+    </div>
+    <div class="card-body">
+        <table class="table table-hover table-sm" id="example">
+            <thead>
+                <tr>
+                    
+                    
+                    <th>
+                        @Html.DisplayNameFor(model => model.id)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Type)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.FixedCharge)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Updatedon)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Status)
+                    </th>
+                    <th>
+                        Actions
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.id)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Type)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.FixedCharge)
+                        </td>
+                        <td>
+                            @{
+                                var updatedDate = Convert.ToDateTime(item.Updatedon).ToString("dd/MM/yyyy");
+                            }
+                            @updatedDate
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Status)
+                        </td>
+                        <td>
+                            <a class="btn btn-sm btn-outline-primary" asp-action="Edit" asp-route-id="@item.id">Edit</a> 
+                            <a class="btn btn-sm btn-outline-info" asp-action="Details" asp-route-id="@item.id">Details</a> 
+                            <a class="btn btn-sm btn-outline-danger" asp-action="Delete" asp-route-id="@item.id">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+@section Scripts{
+<script>
+            $(document).ready(function() {
+        $('#example').DataTable();
+    } );
+</script>
+}
