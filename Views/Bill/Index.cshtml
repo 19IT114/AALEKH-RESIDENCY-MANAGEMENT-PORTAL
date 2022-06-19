@@ -2,6 +2,7 @@
     Layout = "_mainLayout";
     ViewData["Titel"] = "Dashboard";
 }
+
 <div class="breadcrumb">
     <a href="javascript:void(0)" id="PrintBill" class="float-rigth btn btn-sm btn-primary">
         Print
@@ -58,7 +59,8 @@
                                 House no. : __________________________
                             </th>
                             <th>
-                                Period : <input id="from" type="month" style="width:9rem" /> - <input id="to" type="month" style="width:9rem" />
+                                
+                                Period : <input id="from" type="month" style="width:9rem" /> - <input id="to" type="month" style="width:9rem" onchange="charge()"/>
                             </th>
                             <th style="text-align:right;padding-right:15px;">
                                 Date : <span style="min-width:11rem;display:inline-block;text-align:center;"><b>@DateTime.Now.ToString("dd/MM/yyyy")</b></span>
@@ -86,12 +88,12 @@
                             </tr>
                             <tr>
                                 <td style="border:1px solid black;">
-                                    1
+                                   1
                                 </td>
                                 <td style="border:1px solid black;text-align:left;padding-left:1rem;">
                                     Maintainence Charges.
                                 </td>
-                                <td style="border:1px solid black;">
+                                <td style="border:1px solid black;" id="charges">
                                     
                                 </td>
                             </tr>
@@ -102,7 +104,7 @@
                                 <td style="border:1px solid black;text-align:left;padding-left:1rem;">
                                     Cleaning Charges.
                                 </td>
-                                <td style="border:1px solid black;">
+                                <td style="border:1px solid black;" id="charges">
 
                                 </td>
                             </tr>
@@ -150,13 +152,68 @@
                         </table>
                 </center>
     </div>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" data-backdrop="static" aria-hidden="true" >
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Unsufficient Data provided.</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" >
+       <label for="fname" id="alert-text">Alert!! Please Fill up the Required Fields.</label><br>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
 </div>
+
 
 <script>
      $(document).off('click', '#PrintBill').on('click', '#PrintBill', function () {
-        
-            window.open("/Bill/PrintBill/" + $('#from').val() + "," + $('#to').val() + "," + $('#recieveddate').val() + "," + $('#bank').val() + "," + $('#branch').val() + "," + $('#num').val() );
-       
-        
+       var value = $('#recieveddate').val();
+       if(value == '')
+       {
+           $('#exampleModal').modal('show')
+       }
+       else{
+        window.open("/Bill/PrintBill/" + $('#from').val() + "," + $('#to').val() + "," + $('#recieveddate').val() + "," + $('#charges').html() + "," + $('#bank').val() + "," + $('#branch').val() + "," + $('#num').val() );
+       }
     });
+
+    function charge(){
+          var months;
+         var d1 = $('#from').val();
+         var d2 = $('#to').val();
+        months = (new Date(d2).getFullYear() - new Date(d1).getFullYear()) * 12;
+        months -= new Date(d1).getMonth();
+        months += new Date(d2).getMonth() + 1;
+        $('#charges').html(months * 600);
+    };
+
+     $(document).ready(function(){
+       $("#PrintBill").click(function(){
+          if($('#from').val() == '' || $('#to').val() == '')
+          {
+             $("#alert-text").text("Please select the period for which you are recieving the payment.");
+             $("#exampleModal").modal("show");
+             return ;
+          }
+          else if($('#recieveddate').val() == '')
+          {
+             $("#alert-text").text("Please select the date on which you recieved the payment.");
+             $("#exampleModal").modal("show");
+             return ;
+          }
+       });
+    });
+
+    function close(){
+        $('#exampleModal').modal('hide');
+    }
+  
 </script>

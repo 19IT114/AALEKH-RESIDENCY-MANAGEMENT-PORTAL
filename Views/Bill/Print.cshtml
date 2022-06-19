@@ -43,7 +43,19 @@
                                 House no. : __________________________
                             </th>
                             <th>
-                                Period : @Model.fromMonth - @Model.toMonth
+                    @{
+                        var time = "";
+                        if(Model.fromMonth == Model.toMonth)
+                        {
+                            time = Model.fromMonth;
+                        }
+                        else
+                        {
+                            time = @Model.fromMonth + " - " + @Model.toMonth;
+                        }
+                     }
+                                Period : @time
+                    
                             </th>
                             <th style="text-align:right;padding-right:15px;">
                                 Date : <span style="min-width:11rem;display:inline-block;text-align:center;"><b>@DateTime.Now.ToString("dd/MM/yyyy")</b></span>
@@ -77,7 +89,7 @@
                                     Maintainence Charges.
                                 </td>
                                 <td style="border:1px solid black;">
-                                    
+                                    @Model.toatalamount
                                 </td>
                             </tr>
                             <tr>
