@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "LzZFQjNIWzt//mokqNPTMxLu2nOeuWvVklyoRBdG4YE=",
+  "Hash": "uoClV1/NpwyDIsDP9kbUfq9iqOMNvg+k5vTMtK7J68w=",
   "Source": "AALEKH-SOCIETY-COOP",
   "BasePath": "_content/AALEKH-SOCIETY-COOP",
   "Mode": "Default",
@@ -1071,6 +1071,23 @@
       "OriginalItemSpec": "D:\\Web Project\\AALEKH-SOCIETY-COOP\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\AALEKH-SOCIETY-COOP.bundle.scp.css"
     },
     {
+      "Identity": "D:\\Web Project\\AALEKH-SOCIETY-COOP\\wwwroot\\css\\jquery.dataTables.min.css",
+      "SourceId": "AALEKH-SOCIETY-COOP",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Web Project\\AALEKH-SOCIETY-COOP\\wwwroot\\",
+      "BasePath": "_content/AALEKH-SOCIETY-COOP",
+      "RelativePath": "css/jquery.dataTables.min.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\jquery.dataTables.min.css"
+    },
+    {
       "Identity": "D:\\Web Project\\AALEKH-SOCIETY-COOP\\wwwroot\\css\\site.css",
       "SourceId": "AALEKH-SOCIETY-COOP",
       "SourceType": "Discovered",
@@ -1154,6 +1171,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\img\\logo_512.png"
+    },
+    {
+      "Identity": "D:\\Web Project\\AALEKH-SOCIETY-COOP\\wwwroot\\js\\jquery.dataTables.min.js",
+      "SourceId": "AALEKH-SOCIETY-COOP",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Web Project\\AALEKH-SOCIETY-COOP\\wwwroot\\",
+      "BasePath": "_content/AALEKH-SOCIETY-COOP",
+      "RelativePath": "js/jquery.dataTables.min.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\jquery.dataTables.min.js"
     },
     {
       "Identity": "D:\\Web Project\\AALEKH-SOCIETY-COOP\\wwwroot\\js\\site.js",

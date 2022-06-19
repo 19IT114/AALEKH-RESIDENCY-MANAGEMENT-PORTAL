@@ -4,6 +4,7 @@ using AALEKH_SOCIETY_COOP.Areas.Identity.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AALEKH_SOCIETY_COOP.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220619103724_FixedCharges")]
+    partial class FixedCharges
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -87,7 +89,7 @@ namespace AALEKH_SOCIETY_COOP.Migrations
                     b.ToTable("AspNetUsers", (string)null);
                 });
 
-            modelBuilder.Entity("AALEKH_SOCIETY_COOP.FixedCharges", b =>
+            modelBuilder.Entity("AALEKH_SOCIETY_COOP.Models.FixedCharges", b =>
                 {
                     b.Property<int>("id")
                         .ValueGeneratedOnAdd()
@@ -95,17 +97,20 @@ namespace AALEKH_SOCIETY_COOP.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("id"), 1L, 1);
 
-                    b.Property<int?>("FixedCharge")
+                    b.Property<int?>("Cleaningcharges")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("Developmentcharges")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("Maintainencecharges")
                         .HasColumnType("int");
 
                     b.Property<bool?>("Status")
                         .HasColumnType("bit");
 
-                    b.Property<string>("Type")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime?>("Updatedon")
-                        .HasColumnType("datetime2");
+                    b.Property<int?>("Transferfees")
+                        .HasColumnType("int");
 
                     b.HasKey("id");
 
