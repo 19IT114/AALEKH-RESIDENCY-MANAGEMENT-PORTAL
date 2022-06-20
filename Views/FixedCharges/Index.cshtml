@@ -15,11 +15,10 @@
         <a class=" float-right btn btn-sm btn-outline-primary " asp-action="Create">Create New</a>
     </div>
     <div class="card-body">
-        <table class="table table-hover table-sm" id="example">
+        <table class="table table-hover table-sm" id="example" style="text-align:center;">
             <thead>
                 <tr>
-                    
-                    
+
                     <th>
                         @Html.DisplayNameFor(model => model.id)
                     </th>
@@ -60,7 +59,19 @@
                             @updatedDate
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.Status)
+                            @{
+                                var stat = item.Status;
+                                if (stat == true)
+                                {
+                                    <input type="checkbox" checked="checked" id="status" style="height:1.5rem;width:1.5rem" readonly/>
+                                }
+                                else
+                                {
+                                    <input type="checkbox" id="status" style="height:1.5rem;width:1.5rem" readonly/>
+                                }
+                            }
+                            
+                          
                         </td>
                         <td>
                             <a class="btn btn-sm btn-outline-primary" asp-action="Edit" asp-route-id="@item.id">Edit</a> 
