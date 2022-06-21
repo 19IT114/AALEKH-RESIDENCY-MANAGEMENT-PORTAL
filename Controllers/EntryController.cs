@@ -1,8 +1,10 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AALEKH_SOCIETY_COOP.Controllers
 {
+    [Authorize]
     public class EntryController : Controller
     {
         // GET: EntryController

@@ -1,9 +1,11 @@
 ﻿using AALEKH_SOCIETY_COOP.Areas.Identity.Data;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AALEKH_SOCIETY_COOP.Controllers
 {
+    [Authorize]
     public class FixedChargesController : Controller
     {
         private readonly ICommon _common;

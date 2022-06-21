@@ -1,8 +1,10 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AALEKH_SOCIETY_COOP.Controllers
 {
+    [Authorize]
     public class BillController : Controller
     {
         private readonly ICommon _common;
@@ -89,6 +91,7 @@ namespace AALEKH_SOCIETY_COOP.Controllers
                 return View();
             }
         }
+        
         public async Task<IActionResult> PrintBill(string id)
         {
 
