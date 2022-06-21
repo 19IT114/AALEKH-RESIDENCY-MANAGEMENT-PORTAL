@@ -45,7 +45,7 @@
                 {
                     <tr>
                         <td>
-                            @Html.DisplayFor(modelItem => item.Block_no)
+                            <b>@Html.DisplayFor(modelItem => item.Block_no)</b>
                         </td>
                         <td>
                             @Html.DisplayFor(modelItem => item.Owner_name)
@@ -85,6 +85,7 @@
                             <a class="btn btn-sm btn-outline-primary" asp-action="Edit" asp-route-id="@item.Id">Edit</a> 
                             <a class="btn btn-sm btn-outline-info" asp-action="Details" asp-route-id="@item.Id">Details</a> 
                             <a class="btn btn-sm btn-outline-danger" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                            <a class="btn btn-sm btn-outline-warning" asp-action="Index" asp-controller="Bill" asp-route-id="@item.Id">Maintainence</a>
                         </td>
                     </tr>
                 }

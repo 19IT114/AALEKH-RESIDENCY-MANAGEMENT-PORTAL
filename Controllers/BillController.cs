@@ -13,8 +13,11 @@ namespace AALEKH_SOCIETY_COOP.Controllers
             _common = common;
         }
         // GET: BillController
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int id)
         {
+            var resident = await _common.GetResidentsById(id);
+            ViewBag.blockno = resident.Block_no;
+            ViewBag.Resident_name = resident.Owner_name;
             var maintainence = await _common.GetFixedChargesbyId(1);
             ViewBag.Maintainence = (maintainence.Status == true)?maintainence.FixedCharge:0;
             maintainence = await _common.GetFixedChargesbyId(2);

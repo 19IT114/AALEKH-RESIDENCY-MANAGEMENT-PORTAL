@@ -43,15 +43,17 @@ namespace AALEKH_SOCIETY_COOP.Controllers
             residents.Block_no = residents.Initals + "/" + residents.Number;
             if (ModelState.IsValid)
             {
-
+                await _common.AddResidents(residents);
+                return RedirectToAction("Index");
             }
-            return View(nameof(Index));
+            return View(residents);
         }
 
         // GET: ResidentsController/Edit/5
-        public ActionResult Edit(int id)
+        public async Task<IActionResult> Edit(int id)
         {
-            return View();
+            var resident = await _common.GetResidentsById(id);
+            return View(resident);
         }
 
         // POST: ResidentsController/Edit/5

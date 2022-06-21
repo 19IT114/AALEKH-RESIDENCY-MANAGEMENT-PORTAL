@@ -13,5 +13,9 @@ namespace AALEKH_SOCIETY_COOP
         Task<int> RemoveFixedCharge(FixedCharges charges);
 
         Task<List<Residents>> GetAllResidents();
+
+        Task<int> AddResidents(Residents residents);
+        Task<Residents> GetResidentsById(int id);
     }
+
 }

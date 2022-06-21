@@ -9,8 +9,8 @@ namespace AALEKH_SOCIETY_COOP
         public int Id { get; set; }
         [Key]
         [Display(Name = "House No.")]
-        [Required(ErrorMessage = "House Number cannot be Empty..!")]
-        public string Block_no { get; set; }
+
+        public string Block_no { get; set; } = "x/x";
         [Display(Name = "Owner")]
         [Required(ErrorMessage = "Owner Name cannot be Empty..!")]
         public string Owner_name { get; set; }
@@ -29,7 +29,7 @@ namespace AALEKH_SOCIETY_COOP
         [NotMapped]
         [Required(ErrorMessage = "It cannot be Empty")]
         [Display(Name = "House Number")]
-        public int Number { get; set; }
+        public string Number { get; set; }
 
     }
 }

@@ -48,5 +48,16 @@ namespace AALEKH_SOCIETY_COOP
         {
            return await _context.Residents.ToListAsync();
         }
+
+        public async Task<int> AddResidents(Residents residents)
+        {
+            _context.Residents.Add(residents);
+            return await _context.SaveChangesAsync();
+        }
+
+        public async Task<Residents> GetResidentsById(int id )
+        {
+            return await _context.Residents.FirstOrDefaultAsync(x => x.Id == id);
+        }
     }
 }
