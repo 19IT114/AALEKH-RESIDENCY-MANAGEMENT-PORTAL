@@ -13,6 +13,7 @@ public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
     }
      public DbSet<FixedCharges> FixedCharges { get; set; }
+     public DbSet<Residents> Residents { get; set; }
 
     protected override void OnModelCreating(ModelBuilder builder)
     {

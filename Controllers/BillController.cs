@@ -95,7 +95,7 @@ namespace AALEKH_SOCIETY_COOP.Controllers
         public async Task<IActionResult> PrintBill(string id)
         {
 
-            Residents details = new Residents();
+            BillDetails details = new BillDetails();
             details.fromMonth = Convert.ToDateTime(id.Split(",")[0]).ToString("Y");
             details.toMonth = Convert.ToDateTime(id.Split(",")[1]).ToString("Y");
             details.recievedDate = Convert.ToDateTime(id.Split(",")[2]).ToString("dd/MM/yyyy");
@@ -109,7 +109,7 @@ namespace AALEKH_SOCIETY_COOP.Controllers
         }
 
     }
-    public class Residents
+    public class BillDetails
     {
         public string? Bank { get; set; }
         public string? Branch { get; set; }

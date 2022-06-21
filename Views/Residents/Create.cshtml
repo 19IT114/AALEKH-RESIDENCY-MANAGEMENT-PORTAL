@@ -1,0 +1,110 @@
+﻿@model AALEKH_SOCIETY_COOP.Residents
+@{
+    Layout = "_mainLayout";
+    ViewData["Title"] = "Residents";
+}
+<ol class="breadcrumb">
+    <li class="breadcrumb-item active"><a asp-action="index" asp-controller="Dashboard">Dashboard</a></li>
+    <li class="breadcrumb-item active">Add a new Resident</li>
+</ol>
+
+
+<div class="card">
+    <div class="card-header">
+        Add new Resident Details.
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-12">
+                <form asp-action="Create">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="row">
+                        <div class="form-group col-md-3 m-1">
+                            <label asp-for="Initals" class="control-label"></label>
+                            <select typeof="button" asp-for="Initals" class="form-control dropdown-toggle" id="num">
+                                <option value="0" selected>Select House Number Initials</option>
+                                <option value="A-1">A-1</option>
+                                <option value="A">A</option>
+                                <option value="B">B</option>
+                                <option value="C">C</option>
+                            </select>
+                            <span asp-validation-for="Initals" class="text-danger"></span>
+                        </div>
+                        <div class="form-group col-md-3 m-1">
+                            <label asp-for="Number" class="control-label"></label>
+                            <input asp-for="Number" class="form-control" />
+                            <span asp-validation-for="Number" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-5 m-1">
+                            <label asp-for="Owner_name" class="control-label"></label>
+                            <input asp-for="Owner_name" class="form-control" />
+                            <span asp-validation-for="Owner_name" class="text-danger"></span>
+                        </div>
+                        <div class="form-group col-md-3 m-1">
+                            <label asp-for="Mobile_no" class="control-label"></label>
+                            <input asp-for="Mobile_no" class="form-control" />
+                            <span asp-validation-for="Mobile_no" class="text-danger"></span>
+                        </div>
+                    </div>
+                        <div class="row">
+                        <div class="form-group col-md-3 m-1">
+                            <label asp-for="has_Rentals" class="control-label"></label>
+                            <input asp-for="has_Rentals"  />
+                            <span asp-validation-for="has_Rentals" class="text-danger"></span>
+                        </div>
+                        <div class="form-group col-md-3 m-1">
+                            <label asp-for="Is_a_Streetmember" class="control-label"></label>
+                            <input asp-for="Is_a_Streetmember" />
+                            <span asp-validation-for="Is_a_Streetmember" class="text-danger"></span>
+                        </div>
+                       </div>
+                  
+                    <hr />
+
+                    <div class="form-group float-right">
+                        <a class="btn btn-sm btn-outline-info" asp-action="Index">Back to List</a> &nbsp;&nbsp;&nbsp;
+                        <input type="submit" value="Create" onclick="Check()" class="btn btn-primary" />
+                    </div>
+                </form>
+            </div>
+        </div>
+
+      
+
+    </div>
+</div>
+
+
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");  }
+
+     <script>
+     function Check()
+     {
+         var val = $("#num").val();
+         if(val == 0)
+         {
+             Toastify({
+          text: "Please Slect the House Number Initials",
+          duration: 3000,
+          destination: "/Residents/Create",
+          newWindow: false,
+          close: true,
+          gravity: "top", // `top` or `bottom`
+          position: "center", // `left`, `center` or `right`
+          stopOnFocus: true, // Prevents dismissing of toast on hover
+          offset: {
+               // horizontal axis - can be a number or a string indicating unity. eg: '2em'
+                y: 45 // vertical axis - can be a number or a string indicating unity. eg: '2em'
+              },
+          style: {
+            background: "linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%)",
+          }
+        }).showToast();
+         }
+         
+     }
+    </script>
+  
+

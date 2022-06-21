@@ -43,5 +43,10 @@ namespace AALEKH_SOCIETY_COOP
              _context.FixedCharges.Remove(charges);
             return await _context.SaveChangesAsync(); 
         }
+
+        public async Task<List<Residents>> GetAllResidents()
+        {
+           return await _context.Residents.ToListAsync();
+        }
     }
 }
