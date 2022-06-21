@@ -17,158 +17,139 @@
 
 <div class="d-flex justify-content-center">
     <div class="card-body col-md-8 " style="background:white;margin-top:2rem;">
-                <center>
-                    <table border="1" style="width:63rem;">
-                        <tr style="text-align:center">
-                            <th rowspan=2 colspan=2 >
-                                <img src="~/img/logo.png" style="height:5rem; width:10rem;">
-                            </th>
+        <center>
+            <table border="1" style="width:63rem;">
+                <tr style="text-align:center">
+                    <th rowspan=2 colspan=2>
+                        <img src="~/img/logo.png" style="height:5rem; width:10rem;">
+                    </th>
 
-                            <td style="text-align:center; padding:7px" rowspan=2>
-                                <h4>
-                                    AALEKH CO.OPERATIVE HOUSING SERVICE SOCIETY LTD. 
-                                </h4>
-                                
-                                <h6>
-                                   Near Chamunda Temple, Zadeshwar Road, Bharuch  -  392011.
-                                </h6>
-                            </td>
-                            <td style="text-align:right ; padding:7px 15px 7px 0px;" rowspan=2>
-                                <h6>Reg. No. : SA / 7183</h6>
-                                <h6>Date : 4-03-2014</h6>
-                            </td>
-                        </tr>
-                    </table>
-                    <table border="1" style="width:63rem;text-align:left;border-collapse: separate;border-spacing: 0px 15px;">
-                        <tr>
-                            <th>
+                    <td style="text-align:center; padding:7px" rowspan=2>
+                        <h4>
+                            AALEKH CO.OPERATIVE HOUSING SERVICE SOCIETY LTD.
+                        </h4>
 
-                            </th>
-                             <th style="text-align:center;">
-                                 <mark style="background-color:black; color:white;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RECEIPT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</mark>
-                            </th>
-                             <th style="text-align:right;padding-right:15px;">
-                                 Receipt No. : __________________________
-                            </th>
-                        </tr>
-                        <tr>
-                            <th style="padding-left:7px;">
-                                House no. : __________________________
-                            </th>
-                            <th>
-                                
-                                Period : <input id="from" type="month" style="width:9rem" /> - <input id="to" type="month" style="width:9rem" onchange="charge()"/>
-                            </th>
-                            <th style="text-align:right;padding-right:15px;">
-                                Date : <span style="min-width:11rem;display:inline-block;text-align:center;"><b>@DateTime.Now.ToString("dd/MM/yyyy")</b></span>
-                            </th>
-                        </tr>
-                        </table>
-                        <table border="1" style="width:63rem;text-align:left;">
-                            <tr>
-                                <td style="word-wrap:break-word;padding:10px;">
-                                   Mr. / Mrs. : <span style="min-width:48rem;display: inline-block;">___________________________________________________________________________________________________________________</span> has paid a sum of Rs. <span style="min-width:36rem;display: inline-block;">______________________________________________________________________________________</span> via Cheque / Online number <span style="min-width:10rem; display: inline-block;"><input style="width:11rem" placeholder="Cheque / Online no." id="num" type="text"/></span> on Date : <span style="min-width:9rem; display: inline-block;"><input type="date" id="recieveddate" placeholder="Please select the date." style="min-width:8rem" /></span> via Bank : <span style="min-width:9rem; display: inline-block;"><input style="min-width:8rem;" id="bank" type="text" name="bank" placeholder="Bank Name"/></span> Branch : <span style="min-width:12rem; display: inline-block;"><input type="text" id="branch" style="width:12rem;" placeholder="Branch Name" /></span> / Cash has been recieved.
-                                </td>
-                            </tr>
-                        </table>
-                        <table border="1" style="width:63rem;text-align:center;">
-                            <tr >
-                                <th style="border:1px solid black;width:5rem;">
-                                    Sr. no.
-                                </th>
-                                <th style="border:1px solid black;text-align:left;padding-left:1rem;width:50rem">
-                                    Particulars
-                                </th>
-                                <th style="border:1px solid black;">
-                                    Amount (Rs.)
-                                </th>
-                            </tr>
-                            <tr>
-                                <td style="border:1px solid black;">
-                                   1
-                                </td>
-                                <td style="border:1px solid black;text-align:left;padding-left:1rem;">
-                                    Maintainence Charges.
-                                </td>
-                                <td style="border:1px solid black;" id="maintainence">
-                                    
-                                </td>
-                            </tr>
-                            <tr>
-                                <td style="border:1px solid black;">
-                                    2
-                                </td>
-                                <td style="border:1px solid black;text-align:left;padding-left:1rem;">
-                                    Cleaning Charges.
-                                </td>
-                                <td style="border:1px solid black;" id="cleaning">
+                        <h6>
+                            Near Chamunda Temple, Zadeshwar Road, Bharuch  -  392011.
+                        </h6>
+                    </td>
+                    <td style="text-align:right ; padding:7px 15px 7px 0px;" rowspan=2>
+                        <h6>Reg. No. : SA / 7183</h6>
+                        <h6>Date : 4-03-2014</h6>
+                    </td>
+                </tr>
+            </table>
+            <table border="1" style="width:63rem;text-align:left;border-collapse: separate;border-spacing: 0px 15px;">
+                <tr>
+                    <th>
 
-                                </td>
-                            </tr>
-                            <tr>
-                                <td style="border:1px solid black;">
-                                    3
-                                </td>
-                                <td style="border:1px solid black;text-align:left;padding-left:1rem;">
-                                    Other Charges.
-                                </td>
-                                <td style="border:1px solid black;">
+                    </th>
+                    <th style="text-align:center;">
+                        <mark style="background-color:black; color:white;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RECEIPT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</mark>
+                    </th>
+                    <th style="text-align:right;padding-right:15px;">
+                        Receipt No. : __________________________
+                    </th>
+                </tr>
+                <tr>
+                    <th style="padding-left:7px;">
+                        House no. : __________________________
+                    </th>
+                    <th>
 
-                                </td>
-                            </tr>
-                             <tr>
-                                <td style="border:1px solid black;">
-                                    
-                                </td>
-                                <td style="border:1px solid black;text-align:left;padding-left:1rem;">
-                                    <b>Remarks : </b>
-                                </td>
-                                <td style="border:1px solid black;">
+                        Period : <input id="from" type="month" style="width:9rem" /> - <input id="to" type="month" style="width:9rem" onchange="charge()" />
+                    </th>
+                    <th style="text-align:right;padding-right:15px;">
+                        Date : <span style="min-width:11rem;display:inline-block;text-align:center;"><b>@DateTime.Now.ToString("dd/MM/yyyy")</b></span>
+                    </th>
+                </tr>
+            </table>
+            <table border="1" style="width:63rem;text-align:left;">
+                <tr>
+                    <td style="word-wrap:break-word;padding:10px;">
+                        Mr. / Mrs. : <span style="min-width:48rem;display: inline-block;">___________________________________________________________________________________________________________________</span> has paid a sum of Rs. <span style="min-width:36rem;display: inline-block;">______________________________________________________________________________________</span> via Cheque / Online number <span style="min-width:10rem; display: inline-block;"><input style="width:11rem" placeholder="Cheque / Online no." id="num" type="text" /></span> on Date : <span style="min-width:9rem; display: inline-block;"><input type="date" id="recieveddate" placeholder="Please select the date." style="min-width:8rem" /></span> via Bank : <span style="min-width:9rem; display: inline-block;"><input style="min-width:8rem;" id="bank" type="text" name="bank" placeholder="Bank Name" /></span> Branch : <span style="min-width:12rem; display: inline-block;"><input type="text" id="branch" style="width:12rem;" placeholder="Branch Name" /></span> / Cash has been recieved.
+                    </td>
+                </tr>
+            </table>
+            <table border="1" style="width:63rem;text-align:center;">
+                <tr>
+                    <th style="border:1px solid black;width:5rem;">
+                        Sr. no.
+                    </th>
+                    <th style="border:1px solid black;text-align:left;padding-left:1rem;width:50rem">
+                        Particulars
+                    </th>
+                    <th style="border:1px solid black;">
+                        Amount (Rs.)
+                    </th>
+                </tr>
+                <tr>
+                    <td style="border:1px solid black;">
+                        1
+                    </td>
+                    <td style="border:1px solid black;text-align:left;padding-left:1rem;">
+                        Maintainence Charges.
+                    </td>
+                    <td style="border:1px solid black;" id="maintainence">
+                    </td>
+                </tr>
+                <tr>
+                    <td style="border:1px solid black;">
+                        2
+                    </td>
+                    <td style="border:1px solid black;text-align:left;padding-left:1rem;">
+                        Cleaning Charges.
+                    </td>
+                    <td style="border:1px solid black;" id="cleaning">
+                    </td>
+                </tr>
+                <tr>
+                    <td style="border:1px solid black;">
+                        3
+                    </td>
+                    <td style="border:1px solid black;text-align:left;padding-left:1rem;">
+                        Other Charges.
+                    </td>
+                    <td style="border:1px solid black;">
+                    </td>
+                </tr>
+                <tr>
+                    <td style="border:1px solid black;">
+                    </td>
+                    <td style="border:1px solid black;text-align:left;padding-left:1rem;">
+                        <b>Remarks : </b>
+                    </td>
+                    <td style="border:1px solid black;">
+                    </td>
+                </tr>
 
-                                </td>
-                            </tr>
-
-                        </table>
-                        <table border="1" style="width:63rem;text-align:center;">
-                            <tr>
-                                <td rowspan=2>
-                                    Sign : <span style="min-width:5rem;display:inline-block;">________________________</span>
-                                </td>
-                                <td rowspan=2>
-                                    Recieved by : <span style="min-width:5rem;display:inline-block;">________________________________</span>
-                                </td>
-                                <td style="text-align:right;padding-right:1rem;">
-                                    For, AALEKH CO.OP HOUSING SOCIETY LTD.
-                                </td>
-                            </tr>
-                            <tr>
-                                <td style="text-align:right;padding-right:2rem;">
-                                    PRESIDENT / SECRETARY / TREASURER
-                                </td>
-                            </tr>
-                        </table>
-                </center>
+            </table>
+            <table border="1" style="width:63rem;text-align:center;">
+                <tr>
+                    <td rowspan=2>
+                        Sign : <span style="min-width:5rem;display:inline-block;">________________________</span>
+                    </td>
+                    <td rowspan=2>
+                        Recieved by : <span style="min-width:5rem;display:inline-block;">________________________________</span>
+                    </td>
+                    <td style="text-align:right;padding-right:1rem;">
+                        For, AALEKH CO.OP HOUSING SOCIETY LTD.
+                    </td>
+                </tr>
+                <tr>
+                    <td style="text-align:right;padding-right:2rem;">
+                        PRESIDENT / SECRETARY / TREASURER
+                    </td>
+                </tr>
+            </table>
+        </center>
     </div>
-    </div>
-
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" data-backdrop="static" aria-hidden="true" >
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Unsufficient Data provided.</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body" >
-       <label for="fname" id="alert-text">Alert!! Please Fill up the Required Fields.</label><br>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-      </div>
-    </div>
-  </div>
 </div>
+
+<div class="modal-body" hidden>
+    <label for="fname" id="alert-text">Alert!! Please Fill up the Required Fields.</label><br>
+</div>
+
 
 
 <script>
@@ -186,6 +167,7 @@
     function charge(){
         var maintainence = '@ViewBag.Maintainence';
         var cleaning = '@ViewBag.Cleaning';
+
          var months;
          var d1 = $('#from').val();
          var d2 = $('#to').val();
@@ -201,20 +183,41 @@
           if($('#from').val() == '' || $('#to').val() == '')
           {
              $("#alert-text").text("Please select the period for which you are recieving the payment.");
-             $("#exampleModal").modal("show");
-             return ;
+             toast($("#alert-text").text());
+
           }
           else if($('#recieveddate').val() == '')
           {
              $("#alert-text").text("Please select the date on which you recieved the payment.");
-             $("#exampleModal").modal("show");
+             toast($("#alert-text").text());
              return ;
           }
        });
     });
 
-    function close(){
-        $('#exampleModal').modal('hide');
+    //function close(){
+    //    $('#exampleModal').modal('hide');
+    //}
+
+    function toast(msg)
+    {
+        Toastify({
+          text: msg,
+          duration: 3000,
+          destination: "/Bill",
+          newWindow: false,
+          close: true,
+          gravity: "top", // `top` or `bottom`
+          position: "center", // `left`, `center` or `right`
+          stopOnFocus: true, // Prevents dismissing of toast on hover
+          offset: {
+               // horizontal axis - can be a number or a string indicating unity. eg: '2em'
+                y: 70 // vertical axis - can be a number or a string indicating unity. eg: '2em'
+              },
+          style: {
+            background: "linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%)",
+          }
+        }).showToast();
     }
-  
+
 </script>
