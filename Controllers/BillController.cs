@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace AALEKH_SOCIETY_COOP.Controllers
 {
@@ -22,7 +23,8 @@ namespace AALEKH_SOCIETY_COOP.Controllers
             ViewBag.Maintainence = (maintainence.Status == true)?maintainence.FixedCharge:0;
             maintainence = await _common.GetFixedChargesbyId(2);
             ViewBag.Cleaning = (maintainence.Status == true)?maintainence.FixedCharge:0;
-           
+            var members = await _common.GetAllStreetMembers();
+            ViewBag.streetmembers =members.Select(x => new SelectListItem() { Value = x.Id.ToString(), Text = x.Owner_name });
             return View();
         }
 
