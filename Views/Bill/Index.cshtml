@@ -166,7 +166,7 @@
            $('#exampleModal').modal('show')
        }
        else{
-        window.open("/Bill/PrintBill/" + $('#from').val() + "," + $('#to').val() + "," + $('#recieveddate').val() + "," + $('#maintainence').html() + "," + $('#cleaning').html() + "," + $('#bank').val() + "," + $('#branch').val() + "," + $('#num').val() );
+        window.open("/Bill/PrintBill/"+ @ViewBag.blockno + "," + @ViewBag.Resident_name + "," + $('#from').val() + "," + $('#to').val() + "," + $('#recieveddate').val() + "," + $('#maintainence').html() + "," + $('#cleaning').html() + "," + $('#bank').val() + "," + $('#branch').val() + "," + $('#num').val() );
        }
 
     });

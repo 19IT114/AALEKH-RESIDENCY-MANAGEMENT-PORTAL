@@ -59,16 +59,34 @@ namespace AALEKH_SOCIETY_COOP.Controllers
         // POST: ResidentsController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Block_no,Owner_name,Mobile_no,Is_a_Streetmember,has_Rentals")] Residents residents)
         {
-            try
+            if(id != residents.Id)
             {
+                return NotFound();
+            }
+            
+
+            if(ModelState.IsValid)
+            {
+                try
+                {
+                    await _common.UpdateResident(residents);
+                }
+                catch (Exception )
+                {
+                    if(!(await _common.CheckResidentExists(id)))
+                    {
+                        return NotFound();
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                }
                 return RedirectToAction(nameof(Index));
             }
-            catch
-            {
-                return View();
-            }
+            return View(residents);
         }
 
         // GET: ResidentsController/Delete/5

@@ -16,6 +16,7 @@ builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.R
 builder.Services.AddControllersWithViews();
 builder.Services.AddProgressiveWebApp();
 builder.Services.AddScoped<ICommon, Common>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

@@ -5,11 +5,9 @@ namespace AALEKH_SOCIETY_COOP
 {
     public class Residents
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Id { get; set; }
         [Key]
+        public int Id { get; set; }
         [Display(Name = "House No.")]
-
         public string Block_no { get; set; } = "x/x";
         [Display(Name = "Owner")]
         [Required(ErrorMessage = "Owner Name cannot be Empty..!")]
@@ -23,13 +21,13 @@ namespace AALEKH_SOCIETY_COOP
         public bool has_Rentals { get; set; } = false;
 
         [NotMapped]
-        [Required(ErrorMessage ="It cannot be Empty")]
+        
         [Display(Name ="House Number Initials")]
-        public string Initals { get; set; }
+        public string? Initals { get; set; }
         [NotMapped]
-        [Required(ErrorMessage = "It cannot be Empty")]
+       
         [Display(Name = "House Number")]
-        public string Number { get; set; }
+        public string? Number { get; set; }
 
     }
 }

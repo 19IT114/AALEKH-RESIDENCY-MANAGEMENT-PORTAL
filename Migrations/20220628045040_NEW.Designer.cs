@@ -4,6 +4,7 @@ using AALEKH_SOCIETY_COOP.Areas.Identity.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AALEKH_SOCIETY_COOP.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220628045040_NEW")]
+    partial class NEW
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -114,15 +116,14 @@ namespace AALEKH_SOCIETY_COOP.Migrations
 
             modelBuilder.Entity("AALEKH_SOCIETY_COOP.Residents", b =>
                 {
+                    b.Property<string>("Block_no")
+                        .HasColumnType("nvarchar(450)");
+
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<string>("Block_no")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("Is_a_Streetmember")
                         .HasColumnType("bit");
@@ -138,7 +139,7 @@ namespace AALEKH_SOCIETY_COOP.Migrations
                     b.Property<bool>("has_Rentals")
                         .HasColumnType("bit");
 
-                    b.HasKey("Id");
+                    b.HasKey("Block_no");
 
                     b.ToTable("Residents");
                 });

@@ -64,5 +64,16 @@ namespace AALEKH_SOCIETY_COOP
         {
             return await _context.Residents.Where(x => x.Is_a_Streetmember == true).ToListAsync();
         }
+
+        public async Task<int> UpdateResident(Residents residents)
+        {
+           _context.Residents.Update(residents);
+            return await _context.SaveChangesAsync();
+        }
+
+        public async Task<bool> CheckResidentExists(int id)
+        {
+            return await _context.Residents.AnyAsync(x => x.Id == id);
+        }
     }
 }

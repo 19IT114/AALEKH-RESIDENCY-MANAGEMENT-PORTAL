@@ -17,6 +17,8 @@ namespace AALEKH_SOCIETY_COOP
         Task<int> AddResidents(Residents residents);
         Task<Residents> GetResidentsById(int id);
         Task<List<Residents>> GetAllStreetMembers();
+        Task<int> UpdateResident(Residents residents);
+        Task<bool> CheckResidentExists(int id);
     }
 
 }
