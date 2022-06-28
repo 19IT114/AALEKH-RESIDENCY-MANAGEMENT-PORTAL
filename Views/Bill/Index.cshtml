@@ -68,7 +68,7 @@
             <table border="1" style="width:63rem;text-align:left;">
                 <tr>
                     <td style="word-wrap:break-word;padding:10px;">
-                        Mr. / Mrs. : <u><span style="min-width:48rem;display: inline-block;"><p style="text-align:center;font-weight:bold;word-spacing:1rem;letter-spacing:0.3rem;margin-bottom:0.2rem">@ViewBag.Resident_name</p></span></u> has paid a sum of Rs. <span  style="min-width:36rem;display: inline-block;"><p id="words" style="text-align:center;font-weight:bold;letter-spacing:0.1rem;margin-bottom:0.2rem"></p></span> via Cheque / Online number <span style="min-width:10rem; display: inline-block;"><input style="width:11rem" placeholder="Cheque / Online no." id="num" type="text" /></span> on Date : <span style="min-width:9rem; display: inline-block;"><input type="date" id="recieveddate" placeholder="Please select the date." style="min-width:8rem" /></span> via Bank : <span style="min-width:9rem; display: inline-block;"><input style="min-width:8rem;" id="bank" type="text" name="bank" placeholder="Bank Name" /></span> Branch : <span style="min-width:12rem; display: inline-block;"><input type="text" id="branch" style="width:12rem;" placeholder="Branch Name" /></span> / Cash has been recieved.
+                        Mr. / Mrs. : <u><span style="min-width:48rem;display: inline-block;"><p style="text-align:center;font-weight:bold;word-spacing:1rem;letter-spacing:0.3rem;margin-bottom:0.2rem">@ViewBag.Resident_name</p></span></u> has paid a sum of Rs. <span  style="min-width:36rem;display: inline-block;"><p id="words" style="text-align:center;font-weight:bold;margin-bottom:0.2rem"></p></span> via Cheque / Online number <span style="min-width:10rem; display: inline-block;"><input style="width:11rem" placeholder="Cheque / Online no." id="num" type="text" /></span> on Date : <span style="min-width:9rem; display: inline-block;"><input type="date" id="recieveddate" placeholder="Please select the date." style="min-width:8rem" /></span> via Bank : <span style="min-width:9rem; display: inline-block;"><input style="min-width:8rem;" id="bank" type="text" name="bank" placeholder="Bank Name" /></span> Branch : <span style="min-width:12rem; display: inline-block;"><input type="text" id="branch" style="width:12rem;" placeholder="Branch Name" /></span> / Cash has been recieved.
                     </td>
                 </tr>
             </table>
@@ -131,7 +131,7 @@
                         Sign : <span style="min-width:5rem;display:inline-block;">________________________</span>
                     </td>
                     <td rowspan=2>
-                        Recieved by : <span style="min-width:5rem;display:inline-block;">@Html.DropDownList("StreetMembers", (IEnumerable<SelectListItem>)ViewBag.streetmembers, "- Select StreetMember -")</span>
+                        Recieved by : <span id="reciever" onchange="Dropdown()" style="min-width:5rem;display:inline-block;">@Html.DropDownList("StreetMembers", (IEnumerable<SelectListItem>)ViewBag.streetmembers, "- Select StreetMember -")</span>
                     </td>
                     <td style="text-align:right;padding-right:1rem;">
                         For, AALEKH CO.OP HOUSING SOCIETY LTD.
@@ -155,22 +155,27 @@
 
 <script>
 
-    $(document).ready(function(){
-
-    });
-
      $(document).off('click', '#PrintBill').on('click', '#PrintBill', function () {
+        if($('#reciever option:selected').text() == "- Select StreetMember -")
+          {
+              $("#alert-text").text("Please select the reciever of the payment.");
+             toast($("#alert-text").text());
+             return;
+          }
+         var recievedby = $('#reciever option:selected').text();
+        
+         var id = '@ViewBag.id';
+         
        var value = $('#recieveddate').val();
        if(value == '')
        {
            $('#exampleModal').modal('show')
        }
        else{
-        window.open("/Bill/PrintBill/"+ @ViewBag.blockno + "," + @ViewBag.Resident_name + "," + $('#from').val() + "," + $('#to').val() + "," + $('#recieveddate').val() + "," + $('#maintainence').html() + "," + $('#cleaning').html() + "," + $('#bank').val() + "," + $('#branch').val() + "," + $('#num').val() );
+        window.open("/Bill/PrintBill/"+ id +  "," + $('#from').val() + "," + $('#to').val() + "," + $('#recieveddate').val() + "," + $('#maintainence').html() + "," + $('#cleaning').html() + "," + $('#bank').val() + "," + $('#branch').val() + "," + $('#num').val() + "," + $('#words').html() + "," + recievedby);
        }
 
     });
-
 
     var a = ['','One ','Two ','Three ','Four ', 'Five ','Six ','Seven ','Eight ','Nine ','Ten ','Eleven ','Twelve ','Thirteen ','Fourteen ','Fifteen ','Sixteen ','Seventeen ','eighteen ','nineteen '];
     var b = ['', '', 'twenty','thirty','forty','fifty', 'sixty','seventy','eighty','ninety'];
@@ -187,9 +192,8 @@
         return str.toUpperCase();
     }
 
-
-
-    function charge(){
+    function charge()
+    {
         var maintainence = '@ViewBag.Maintainence';
         var cleaning = '@ViewBag.Cleaning';
 
@@ -201,7 +205,7 @@
         months += new Date(d2).getMonth() + 1;
         $('#maintainence').html(months * maintainence);
         $('#cleaning').html((months * cleaning));
-        document.getElementById('words').innerHTML =  $('#maintainence').html() + " ( " +inWords(months * maintainence) + " ONLY. )";
+        document.getElementById('words').innerHTML =  $('#maintainence').html() + " ( " +inWords(months * maintainence) + ")";
     };
 
      $(document).ready(function(){
@@ -218,6 +222,7 @@
              toast($("#alert-text").text());
              return ;
           }
+          
        });
     });
 
@@ -246,4 +251,5 @@
         }).showToast();
     }
 
+   
 </script>

@@ -17,6 +17,7 @@ namespace AALEKH_SOCIETY_COOP.Controllers
         public async Task<IActionResult> Index(int id)
         {
             var resident = await _common.GetResidentsById(id);
+            ViewBag.id= id;
             ViewBag.blockno = resident.Block_no;
             ViewBag.Resident_name = resident.Owner_name;
             var maintainence = await _common.GetFixedChargesbyId(1);
@@ -99,16 +100,20 @@ namespace AALEKH_SOCIETY_COOP.Controllers
         
         public async Task<IActionResult> PrintBill(string id)
         {
-
+            var resi = await _common.GetResidentsById(Convert.ToInt32(id.Split(",")[0]));
             BillDetails details = new BillDetails();
-            details.fromMonth = Convert.ToDateTime(id.Split(",")[0]).ToString("Y");
-            details.toMonth = Convert.ToDateTime(id.Split(",")[1]).ToString("Y");
-            details.recievedDate = Convert.ToDateTime(id.Split(",")[2]).ToString("dd/MM/yyyy");
-            details.maintainence = Convert.ToInt32(id.Split(",")[3]);
-            details.cleaning = Convert.ToInt32(id.Split(",")[4]);
-            details.Bank = id.Split(",")[5];
-            details.Branch = id.Split(",")[6];
-            details.chequeOnlineNum = id.Split(",")[7];
+            details.Block = resi.Block_no;
+            details.Resident = resi.Owner_name;
+            details.fromMonth = Convert.ToDateTime(id.Split(",")[1]).ToString("Y");
+            details.toMonth = Convert.ToDateTime(id.Split(",")[2]).ToString("Y");
+            details.recievedDate = Convert.ToDateTime(id.Split(",")[3]).ToString("dd/MM/yyyy");
+            details.maintainence = Convert.ToInt32(id.Split(",")[4]);
+            details.cleaning = Convert.ToInt32(id.Split(",")[5]);
+            details.Bank = id.Split(",")[6];
+            details.Branch = id.Split(",")[7];
+            details.chequeOnlineNum = id.Split(",")[8];
+            details.Inwords = id.Split(",")[9];
+            details.RecievedBy = id.Split(",")[10];
 
             return View("Views/Bill/Print.cshtml", details);
         }
@@ -124,6 +129,13 @@ namespace AALEKH_SOCIETY_COOP.Controllers
         public string? chequeOnlineNum { get; set; }
         public int? maintainence { get; set; }
         public int? cleaning { get; set; }
+        public string? Resident { get; set; }
+        public string? Block { get; set; }
+
+        public string? Inwords { get; set; }
+
+        public string? RecievedBy { get; set; }
+
        
     }
 }
