@@ -14,6 +14,6 @@ namespace AALEKH_SOCIETY_COOP
         [Display(Name = "Last-Updated On")]
         public DateTime? Updatedon { get; set; } 
         [Display(Name = "Status")]
-        public bool? Status { get; set; } = false;
+        public bool Status { get; set; } = false;
     }
 }
